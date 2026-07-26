@@ -1,0 +1,23 @@
+{
+  "name": "cuepilot-live",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Offline-first live event audio cue player with React, Web Audio API and Bitfocus Companion HTTP control.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "vite build --config client/vite.config.js",
+    "start": "node server/server.js",
+    "test": "node --test tests/*.test.js",
+    "check": "npm run test && npm run build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "bootstrap": "5.3.3",
+    "bootstrap-icons": "1.11.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "vite": "5.4.14"
+  }
+}

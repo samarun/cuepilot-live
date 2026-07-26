@@ -1,0 +1,23 @@
+{
+  "$schema": "../node_modules/@companion-module/base/assets/manifest.schema.json",
+  "type": "connection",
+  "id": "cuepilot-live",
+  "name": "CuePilot Live",
+  "shortname": "CuePilot",
+  "description": "Control CuePilot Live audio cues with actions, feedback, variables, and presets",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "git+https://github.com/cuepilot-live/companion-module-cuepilot-live.git",
+  "bugs": "https://github.com/cuepilot-live/companion-module-cuepilot-live/issues",
+  "maintainers": [],
+  "runtime": {
+    "type": "node22",
+    "api": "nodejs-ipc",
+    "apiVersion": "0.0.0",
+    "entrypoint": "../dist/main.js"
+  },
+  "legacyIds": [],
+  "manufacturer": "CuePilot",
+  "products": ["CuePilot Live"],
+  "keywords": ["audio", "cue", "playback", "show control"]
+}

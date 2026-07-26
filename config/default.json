@@ -1,0 +1,10 @@
+{
+  "host": "127.0.0.1",
+  "port": 8090,
+  "allowLanAccess": false,
+  "apiToken": "",
+  "corsAllowlist": ["http://127.0.0.1:8090", "http://127.0.0.1:5173"],
+  "maxUploadBytes": 524288000,
+  "triggerDebounceMs": 100,
+  "openBrowser": true
+}

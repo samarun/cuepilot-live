@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "sample-live-event",
+  "name": "Sample Live Event",
+  "updatedAt": "2026-07-25T00:00:00.000Z",
+  "cues": [
+    {
+      "id": "walk-in-music",
+      "number": 1,
+      "name": "Walk In",
+      "description": "Intro music",
+      "mediaUrl": "/media/replace-with-your-file.wav",
+      "fileName": "replace-with-your-file.wav",
+      "duration": 92,
+      "shortcut": "1",
+      "volume": 0.85,
+      "loop": true,
+      "loopCount": 0,
+      "fadeInMs": 500,
+      "fadeOutMs": 1200,
+      "color": "emerald",
+      "triggerMode": "restart",
+      "group": "Program"
+    },
+    {
+      "id": "applause",
+      "number": 2,
+      "name": "Applause",
+      "description": "Audience reaction SFX",
+      "mediaUrl": "/media/replace-with-your-file-2.wav",
+      "fileName": "replace-with-your-file-2.wav",
+      "duration": 8,
+      "shortcut": "2",
+      "volume": 1,
+      "loop": false,
+      "loopCount": 0,
+      "fadeInMs": 15,
+      "fadeOutMs": 250,
+      "color": "amber",
+      "triggerMode": "restart",
+      "group": "SFX"
+    }
+  ],
+  "settings": {
+    "masterVolume": 0.75,
+    "maxVoices": 16,
+    "defaultFadeMs": 800,
+    "lufsTarget": -23,
+    "meterRefreshHz": 30,
+    "keyboardEnabled": true,
+    "theme": "dark"
+  }
+}
