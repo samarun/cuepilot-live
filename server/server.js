@@ -15,11 +15,14 @@ import { sendJson as sendJsonResponse, readJsonBody, allowCors, verifyToken } fr
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const rootDirectory = path.resolve(currentDirectory, '..');
 const distDirectory = path.join(rootDirectory, 'dist');
-const mediaDirectory = path.join(rootDirectory, 'media');
-const projectPath = path.join(rootDirectory, 'projects', 'current-project.json');
-const settingsPath = path.join(rootDirectory, 'config', 'settings.json');
+const stateDirectory = process.env.CUEPILOT_STATE_DIR
+  ? path.resolve(process.env.CUEPILOT_STATE_DIR)
+  : rootDirectory;
+const mediaDirectory = path.join(stateDirectory, 'media');
+const projectPath = path.join(stateDirectory, 'projects', 'current-project.json');
+const settingsPath = path.join(stateDirectory, 'config', 'settings.json');
 const defaultSettingsPath = path.join(rootDirectory, 'config', 'default.json');
-const logger = new EventLogger(path.join(rootDirectory, 'logs', 'events.log'));
+const logger = new EventLogger(path.join(stateDirectory, 'logs', 'events.log'));
 const clients = new PlaybackClientManager();
 const isDev = process.argv.includes('--dev');
 const apiVersion = '1.1.0';

@@ -223,6 +223,18 @@ config/settings.json            Optional local overrides
 
 Large audio data is never embedded in project JSON.
 
+### Container and BIBE preview storage
+
+The container image runs as an unprivileged user and keeps its root filesystem
+read-only in the BIBE lab. Set `CUEPILOT_STATE_DIR` to place mutable projects,
+media, logs, and optional settings beneath one writable directory. Normal local
+installs are unchanged when the variable is not set.
+
+Pull requests from branches in this repository can opt into the lab by adding
+the `bibe-preview` label. GitHub Actions builds the exact pull-request commit as
+`ghcr.io/samarun/cuepilot-live:sha-COMMIT`; Argo CD then creates the matching
+isolated preview and removes it when the label or pull request is removed.
+
 ## Architecture
 
 ```text

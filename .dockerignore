@@ -1,0 +1,11 @@
+.git
+.github
+.DS_Store
+node_modules
+dist
+logs
+media
+projects/current-project.json
+config/settings.json
+companion-module-cuepilot-live/pkg
+companion-module-cuepilot-live/*.tgz
