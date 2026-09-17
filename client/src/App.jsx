@@ -53,7 +53,7 @@ function Header() {
   const liveSafe = project.settings.operationMode === 'live';
   return (
     <header className="app-header">
-      <div><span className="header-kicker">{project.name}</span><h1>{title}</h1></div>
+      <div><span className="header-kicker">{project.name} · BIBE PR preview</span><h1>{title}</h1></div>
       <div className="header-actions">
         <div className={`save-state ${saveError ? 'error' : ''}`}><i className={`bi ${saveError ? 'bi-exclamation-triangle' : saving ? 'bi-arrow-repeat spin' : 'bi-cloud-check'}`} /><span>{saveError ? 'Save failed' : saving ? 'Saving' : 'Saved locally'}</span></div>
         {!engineEnabled && <button className="enable-audio-button" onClick={enableAudio}><i className="bi bi-volume-up-fill" /> Enable Audio</button>}
