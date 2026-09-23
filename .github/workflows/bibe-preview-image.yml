@@ -41,3 +41,31 @@ jobs:
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.revision=${{ github.event.pull_request.head.sha }}
+
+  preview-route-check:
+    name: Preview HTTPS route reachable
+    needs: publish-preview-image
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      contains(github.event.pull_request.labels.*.name, 'bibe-preview')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Wait for DNS, TLS and Basic Auth challenge
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          url="https://cuepilot-pr-${PR_NUMBER}.git.arunsamuel.com/"
+          for attempt in $(seq 1 60); do
+            status=$(curl --silent --show-error --max-time 10 -o /dev/null -w '%{http_code}' "$url" || true)
+            if [[ "$status" == "401" ]]; then
+              echo "Authenticated preview route reachable over verified HTTPS: $url"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: HTTP ${status}; waiting for reconciliation"
+            sleep 10
+          done
+          echo "Preview route did not become reachable: $url" >&2
+          exit 1
